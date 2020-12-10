@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         title = getString(R.string.contacts)
-
         initDatabase()
     }
 
