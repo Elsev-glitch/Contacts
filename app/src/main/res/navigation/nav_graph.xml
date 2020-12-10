@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/contactsFragment">
+
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.example.contacts.fragments.contacts.ContactsFragment"
+        android:label="fragment_contacts"
+        tools:layout="@layout/fragment_contacts" >
+        <action
+            android:id="@+id/action_contactsFragment_to_addContactFragment"
+            app:destination="@id/addContactFragment" />
+        <action
+            android:id="@+id/action_contactsFragment_to_changeContactFragment"
+            app:destination="@id/changeContactFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addContactFragment"
+        android:name="com.example.contacts.fragments.add_contact.AddContactFragment"
+        android:label="fragment_add_contact"
+        tools:layout="@layout/fragment_add_contact" >
+        <action
+            android:id="@+id/action_addContactFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeContactFragment"
+        android:name="com.example.contacts.fragments.change_contact.ChangeContactFragment"
+        android:label="fragment_change_contact"
+        tools:layout="@layout/fragment_change_contact" >
+        <action
+            android:id="@+id/action_changeContactFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph" />
+        <argument
+            android:name="contact"
+            app:argType="com.example.contacts.model.entity.Contact" />
+    </fragment>
+</navigation>
